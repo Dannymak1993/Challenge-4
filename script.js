@@ -1,90 +1,61 @@
-// Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-
-
-// Write password to the #password input
 function writePassword() {
-  var lowercase = 'abcdefghijklmnopqrstuvwxyz';
+  //Building the character base...
+  var lowercase = "abcdefghijklmnopqrstuvwxyz";
   var uppercase = lowercase.toUpperCase();
-  var number = '0123456789';
-  var symbol = '!@#$%^&*()';
-  var buildingPassword = "";
+  var numbers = "1234567890";
+  var symbol = "!@#$%^&*()";
 
+  // Determine password length
+  var passLength = prompt("How many characters would you like your password to be? ");
 
-  //determine password length
-  var passLength = prompt("Enter a number from 8 to 128 for password length.");
+// validate the user input --> if user chooses <8 or >128, alert that they need to choose a valid password length, then theyre going to need to restart OR call the function that prompts for length again
 
-  // validate the user input --> if user chooses <8 or >128, alert that they need to choose a valid password length, then theyre going to need to restart OR call the function that prompts for length again
-  
-  // prompt --> Do they want uppercase letters?
-  var incLowercase = prompt("Would you like to use uppercase letters?").toLowerCase();
-  if (incLowercase === "yes" || incLowercase === "y") {
-    incLowercase = true;
-  } else{
-    incLowercase = false;
-  }
-    // prompt --> Do they want lowercase letters?
-  var incUppercase = prompt("Would you like to use lowercase letters?").toLowerCase();
-  if (incUppercase === "yes" || incUppercase === "y") {
-    incUppercase = true;
-  } else{
-    incUppercase = false;
-  }
+  // Determine which characters will ultimately go into the character base...
+   // prompt --> Do they want uppercase letters?
+  var incLowercase = prompt("Would you like to use lowercase letters? ").toLowerCase() === "yes";
+   // prompt --> Do they want lowercase letters?
+  var incUppercase = prompt("Would you like to use uppercase letters? ").toLowerCase() === "yes";
     // prompt --> Do they want numbers?
-  var incNumbers = prompt("Would you like to include numbers?").toLowerCase();
-  if (incNumbers === "yes" || incNumbers === "y") {
-    incNumbers = true;
-  } else {
-    incNumbers = false;
-  }
-    // prompt --> Do they want special characters?
-  var incSymbol = prompt("Would you like to include symbols?").toLowerCase();
-  if (incSymbol === "yes" || incSymbol === "y") {
-    incSymbol = true;
-  }else{
-    incSymbol = false;
-  }
+  var incNumbers = prompt("Would you like to use numbers? ").toLowerCase() === "yes";
+  // prompt --> Do they want special characters?
+  var incSymbol = prompt("Would you like to use special characters? ").toLowerCase() === "yes";
 
+  var buildingPassword = '';
   if (incLowercase) {
-    buildingPassword += incLowercase;
+    buildingPassword += lowercase;
   }
-  if (incUppercase){
-    buildingPassword += incUppercase;
+  if (incUppercase) {
+    buildingPassword += uppercase;
   }
-  if (incNumbers){
-    buildingPassword += incNumbers;
+  if (incNumbers) {
+    buildingPassword += numbers;
   }
-  if (incSymbol){
-    buildingPassword += incSymbol;
+  if (incSymbol) {
+    buildingPassword += symbol;
   }
 
-  
-}
+  // Check if at least one character type is selected
+  if (buildingPassword.length === 0) {
+    alert("Please select at least one character type.");
+    return;
+  }
 
-  function generatePassword(){
-    var password = "";
-    for (let i = 0; i < passLength.length; i++) {
+  function generatePassword(length, buildingPassword) {
+    let password = '';
+    for (let i = 0; i < length; i++) {
       password += buildingPassword.charAt(Math.floor(Math.random() * buildingPassword.length));
-      console.log(password)
+    }
+    return password;
   }
 
-  // add code here
- 
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+  let password = generatePassword(passLength, buildingPassword);
+  let passwordText = document.querySelector("#password");
   passwordText.value = password;
-  console.log(password);
   return password;
-  // prompt for password length --> stored in a variable
- // Validate that the user has chosen at least one character set --> if not, either start over or recursively call the function that prompts for the character sets
-
-
-
-//console.log(writePassword());
-
-  
 }
 
-// Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
+
