@@ -16,9 +16,9 @@ Navigate to the urls located below and follow the directions to generate passwor
 
 ![alttext](./assets/screencapture-file-C-Users-Danny-Desktop-Coding-Homework-03-HW-Password-Generator-index-html-2023-04-07-14_23_47.png)
 
-[Github Page](https://github.com/Dannymak1993/Protect-Your-Things)
+[Github Page](https://dannymak1993.github.io/Protect-Your-Things/)
 
-[Repository](https://dannymak1993.github.io/Protect-Your-Things/)
+[Repository](https://github.com/Dannymak1993/Protect-Your-Things)
 
 ## Credits
 
