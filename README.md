@@ -8,6 +8,7 @@ What I have created is a password generator that will specifically allow the use
 
 - [Usage](#usage)
 - [Credits](#credits)
+- [License](#license)
 
 ## Usage
 
@@ -17,7 +18,7 @@ Navigate to the urls located below and follow the directions to generate passwor
 
 [Github Page](https://github.com/Dannymak1993/Protect-Your-Things)
 
-[Repository]
+[Repository](https://dannymak1993.github.io/Protect-Your-Things/)
 
 ## Credits
 
